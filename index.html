@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<!--
+				Tarun Haridasan, Brian Ly, Alex Sun
+				5-28-2019
+				Hollywood Tic Tac Toe
+				This is the main webpage of the game, that will run the code for this game
+			-->
+			<title>Hollywood Tic Tac Toe</title>
+			<!--Link external source files like JQuery CDN, code.js, css-->
+			<link rel="stylesheet" type="text/css" href="styles.css">
+			<script 
+			src="https://code.jquery.com/jquery-3.4.1.js" 
+			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+			crossorigin="anonymous">
+		</script>
+		<script type="text/javascript" src="code.js"></script>
+	</head>
+	<body>
+		<h1 id="title"><b><u>Hollywood Tic Tac Toe</u></b></h1>
+		<!--GUI of the loading page of game (name, symbol selection, difficulty selection)-->
+		<div id="gameIntroduction">
+			<div id="gameBlock">
+				<input type="text" id="txtName" placeholder="What is your name?">
+				<br><br>
+				<div id="choseSymbol">
+					<h1>Choose the symbol you want to play with:</h1>
+					<input type="radio" name="radChooseSymbol" id="radChooseX">
+					<img id="imgChooseSymbol" src="images/xMark.png">
+					<input type="radio" name="radChooseSymbol" id="radChooseO">
+					<img id="imgChooseSymbol" src="images/oMark.png">
+					<br><br><br><br><br>
+				</div>
+				<button class="difficulty" id="btnEasy"><b>Easy Mode</b></button>
+				<button class="difficulty" id="btnMedium"><b>Medium Mode</b></button>
+				<button class="difficulty" id="btnHard"><b>Hard Mode</b></button>
+			</div>			
+		</div>
+		<div id="gameBoard">
+			<!--The Tic Tac Toe game board(table)-->
+			<table id="board">
+				<tr id="boardColumn">
+					<td id="left">
+						<div id="box1">
+							<button id="btnBox1" class="btn"></button>
+						</div>
+					</td>
+					<td id="normalBox">
+						<div id="box2">
+							<button id="btnBox2" class="btn"></button>
+						</div>						
+					</td>
+					<td id="normalBox">
+						<div id="box3">
+							<button id="btnBox3" class="btn"></button>
+						</div>
+					</td>
+				</tr>
+				<tr id="boardColumn">
+					<td id="left">
+						<div id="box4">
+							<button id="btnBox4" class="btn"></button>
+						</div>
+					</td>
+					<td id="normalBox">
+						<div id="box5">
+							<button id="btnBox5" class="btn"></button>
+						</div>						
+					</td>
+					<td id="normalBox">
+						<div id="box6">
+							<button id="btnBox6" class="btn"></button>
+						</div>
+					</td> 
+				</tr>
+				<tr id="boardColumn">
+					<td id="rightLeft">
+						<div id="box7">
+							<button id="btnBox7" class="btn"></button>
+						</div>						
+					</td>
+					<td id="right">
+						<div id="box8">
+							<button id="btnBox8" class="btn"></button>
+						</div>
+					</td>
+					<td id="right">
+						<div id="box9">
+							<button id="btnBox9" class="btn"></button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<!--Game statistics at the end(Time elapsed, # of questions correct, wrong, total quesitons answered)-->
+			<div id="gameSummary">
+				<label id="lblTime">...</label>
+				<br>
+				<label id="lblQuestionsCorrect">...</label>
+				<br>
+				<label id="lblQuestionsWrong">...</label>
+				<br>
+				<label id="lblQuestionsTotal">...</label>
+			</div>
+			<!--GUI where all questions are displayed and answered-->
+			<div id="questionBoard">
+				<h2 id="subHeading">Question:</h2>
+				<label id="lblQuestion">...</label>
+				<!--GUI that pops up for a MULTICHOICE question-->
+				<div id="choices">
+					<div id="choiceA">						
+						<input type="radio" name="radMultiChoice" id="radChoiceA">
+						<label id="lblChoiceA" class="choice"></label>
+					</div>
+					<div id="choiceB">
+						<input type="radio" name="radMultiChoice" id="radChoiceB">
+						<label id="lblChoiceB" class="choice"></label>
+					</div>
+					<div id="choiceC">
+						<input type="radio" name="radMultiChoice" id="radChoiceC">
+						<label id="lblChoiceC" class="choice"></label>
+					</div>
+					<div id="choiceD">
+						<input type="radio" name="radMultiChoice" id="radChoiceD">			
+						<label id="lblChoiceD" class="choice"></label>							
+					</div>
+				</div>	
+				<!--GUI that pops up for a TEXT INPUT question-->
+				<div id="inputBoxQuestions">
+					<input type="text" id="txtAnswer" placeholder="Enter answer here!">
+				</div>
+				<!--GUI that pops up for CHECKBOX questions-->
+				<div id="checkBoxQuestions">
+					<div id="checkBoxChoiceA">
+						<input type="checkbox" name="chkCheckBoxes" id="chkCheckBoxA">
+						<label id="lblCheckBoxChoiceA" class="choice">...</label>		
+						<br>
+					</div>
+					<div id="checkBoxChoiceB">
+						<input type="checkbox" name="chkCheckBoxes" id="chkCheckBoxB">
+						<label id="lblCheckBoxChoiceB" class="choice">...</label>
+						<br>
+					</div>
+					<div id="checkBoxChoiceC">
+						<input type="checkbox" name="chkCheckBoxes" id="chkCheckBoxC">
+						<label id="lblCheckBoxChoiceC" class="choice">...</label>
+						<br>
+					</div>
+					<div id="checkBoxChoiceD">
+						<input type="checkbox" name="chkCheckBoxes" id="chkCheckBoxD">
+						<label id="lblCheckBoxChoiceD" class="choice">...</label>	
+						<br>
+					</div>
+				</div>
+				<!--Buttons used to check answers and indicate end of your turn and start of AIs turn-->
+				<button id="btnCheckAnswers" disabled>Check Answer</button>
+				<button id="btnNextTurn" disabled>Next Turn --></button>			
+			</div>					
+		</div>
+		<!--Displays 'AI thinking', and whether it gets the question correct or wrong-->
+		<div id="aiAnswer">
+			<div id="aiDelay">
+				<h1 id="aiThinkingStatus"> is thinking. Please wait</h1>
+				<img style="margin-left: 15%" src="animations/loading.gif">
+			</div>
+		</div>
+		<!--Shows basic instructions, like whose turn it is-->
+		<div id="instructions">
+			<label id="lblDisplayTurn">...</label>
+		</div>		
+	</body>
+</html>
